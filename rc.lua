@@ -31,6 +31,9 @@ require("w_keyboard")
 -- an existing lua library. It's not the best way to deal with namespace 
 -- conflicts, but it works
 require("c_wibox")
+require("mouseBindings")
+require("keyBindings")
+require("tagsBindings")
 require("rules")
 require("c_signals")
 require("autorun")
