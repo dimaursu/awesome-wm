@@ -30,6 +30,7 @@ require("w_keyboard")
 -- I use c prefix whenever I think my modules name can conflic with 
 -- an existing lua library. It's not the best way to deal with namespace 
 -- conflicts, but it works
+require("w_arrows")
 require("c_wibox")
 require("mouseBindings")
 require("keyBindings")
