@@ -1,4 +1,8 @@
 -- {{{ Wibox
+
+-- bring in the konni arrows
+require("w_arrows")
+
 -- Create a textclock widget
 mytextclock = awful.widget.textclock()
 
@@ -78,6 +82,7 @@ for s = 1, screen.count() do
 
     -- Widgets that are aligned to the right
     local right_layout = wibox.layout.fixed.horizontal()
+    right_layout:add(mwidget_arrow(theme.bg_normal, theme.fg_focus, "right"))
     right_layout:add(kbdcfg.widget)
     if s == 1 then right_layout:add(wibox.widget.systray()) end
     right_layout:add(mytextclock)
