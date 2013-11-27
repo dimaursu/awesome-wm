@@ -22,6 +22,7 @@ if beautiful.wallpaper then
 end
 -- }}}
 
+
 require("tags")
 require("menu")
 -- w - means widget
@@ -30,10 +31,13 @@ require("w_keyboard")
 -- I use c prefix whenever I think my modules name can conflic with 
 -- an existing lua library. It's not the best way to deal with namespace 
 -- conflicts, but it works
+-- bring in the konni arrows
 require("w_arrows")
+
 require("c_wibox")
 require("mouseBindings")
 require("keyBindings")
+
 require("tagsBindings")
 require("rules")
 require("c_signals")

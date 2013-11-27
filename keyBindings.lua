@@ -32,21 +32,18 @@ globalkeys = awful.util.table.join(
         --================================================================================================--
         -- --some useful bindigs
        awful.key({ }, "Print", function () awful.util.spawn("scrot -e 'mv $f ~/Pictures/screenshots/ 2>/dev/null'") end),
-       awful.key({ }, "XF86Launch1", function () awful.util.spawn("xlock") end),
-       awful.key({ }, "XF86Mail", function () awful.util.spawn("thunderbird") end),
-       awful.key({ }, "XF86HomePage", function () awful.util.spawn("firefox") end),
-       awful.key({ }, "XF86Launch2", function () awful.util.spawn(terminal) end),
+       awful.key({ modkey }, "c", function () awful.util.spawn("slock") end),
        awful.key({ modkey }, "b", function () mywibox[mouse.screen].visible = not mywibox[mouse.screen].visible end),
        awful.key({ }, "XF86AudioRaiseVolume", function () awful.util.spawn("amixer set Master 10%+" ) end ),
        awful.key({ }, "XF86AudioLowerVolume", function () awful.util.spawn("amixer set Master 10%-") end),
        -- Alt + Right Shift switches the current keyboard layout
        awful.key({ "Mod1" }, "Shift_R", function () kbdcfg.switch() end),
        --let's make 2 configs, when the my CRT monitor is on the right side, and in the left one
-       awful.key({ modkey, "Shift" }, "r", function () awful.util.spawn("xrandr --output VGA-0 --mode 1024x768 --right-of LVDS") end),
-       awful.key({ modkey, "Shift" }, "l", function () awful.util.spawn("xrandr --output VGA-0 --mode 1024x768 --left-of LVDS") end),
+       awful.key({ modkey, "Shift" }, "r", function () awful.util.spawn("xrandr --output VGA-0 --auto --right-of LVDS") end),
+       awful.key({ modkey, "Shift" }, "l", function () awful.util.spawn("xrandr --output VGA-0 --auto --left-of LVDS") end),
        awful.key({ modkey, "Shift" }, "f", function () awful.util.spawn("xrandr --output VGA-0 --off") end),
-       awful.key({ modkey, "Control" }, "s", function () awful.util.spawn(" xsetwacom set \" WALTOP Tablet stylus\" RawSample", tabInterpolate+1) end),
-       awful.key({ modkey, "Control" }, "h", function () awful.util.spawn(" xsetwacom set \" WALTOP Tablet stylus\" RawSample", tabInterpolate-1) end),
+       --awful.key({ modkey, "Control" }, "s", function () awful.util.spawn(" xsetwacom set \" WALTOP Tablet stylus\" RawSample", tabInterpolate+1) end),
+       --awful.key({ modkey, "Control" }, "h", function () awful.util.spawn(" xsetwacom set \" WALTOP Tablet stylus\" RawSample", tabInterpolate-1) end),
        --=================================================================================================--
 
    -- Standard program
