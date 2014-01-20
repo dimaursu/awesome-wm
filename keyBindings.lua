@@ -34,8 +34,9 @@ globalkeys = awful.util.table.join(
        awful.key({ }, "Print", function () awful.util.spawn("scrot -e 'mv $f ~/Pictures/screenshots/ 2>/dev/null'") end),
        awful.key({ modkey }, "c", function () awful.util.spawn("slock") end),
        awful.key({ modkey }, "b", function () mywibox[mouse.screen].visible = not mywibox[mouse.screen].visible end),
-       awful.key({ }, "XF86AudioRaiseVolume", function () awful.util.spawn("amixer set Master 10%+" ) end ),
-       awful.key({ }, "XF86AudioLowerVolume", function () awful.util.spawn("amixer set Master 10%-") end),
+       awful.key({ }, "XF86AudioRaiseVolume", function () awful.util.spawn("amixer -D pulse sset Master 10%+") end ),
+       awful.key({ }, "XF86AudioLowerVolume", function () awful.util.spawn("amixer -D pulse sset Master 10%-") end),
+       awful.key({ }, "XF86AudioMute", function () awful.util.spawn("amixer -D pulse sset Master togglemute") end),
        -- Alt + Right Shift switches the current keyboard layout
        awful.key({ "Mod1" }, "Shift_R", function () kbdcfg.switch() end),
        --let's make 2 configs, when the my CRT monitor is on the right side, and in the left one
