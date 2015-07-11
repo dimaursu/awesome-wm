@@ -27,12 +27,10 @@ require("tags")
 require("menu")
 -- w - means widget
 require("w_keyboard")
--- c - means custom
--- I use c prefix whenever I think my modules name can conflic with 
--- an existing lua library. It's not the best way to deal with namespace 
+-- I use c prefix whenever I think my modules name can conflict with
+-- an existing lua library. It's not the best way to deal with namespace
 -- conflicts, but it works
--- bring in the konni arrows
-require("w_arrows")
+-- c - custom
 
 require("c_wibox")
 require("mouseBindings")
