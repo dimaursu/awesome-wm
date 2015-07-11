@@ -3,7 +3,7 @@
 beautiful.init("/usr/share/awesome/themes/bluemoon/theme.lua")
 
 -- This is used later as the default terminal and editor to run.
-terminal = "uxterm"
+terminal = "st"
 editor = os.getenv("EDITOR") or "editor"
 editor_cmd = terminal .. " -e " .. editor
 
