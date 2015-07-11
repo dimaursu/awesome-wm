@@ -19,8 +19,8 @@ globalkeys = awful.util.table.join(
     -- Layout manipulation
     awful.key({ modkey, "Shift" }, "k", function () awful.client.swap.byidx( 1) end),
     awful.key({ modkey, "Shift" }, "j", function () awful.client.swap.byidx( -1) end),
-    awful.key({ modkey, "Control" }, "k", function () awful.screen.focus_relative( 1) end),
-    awful.key({ modkey, "Control" }, "j", function () awful.screen.focus_relative(-1) end),
+    awful.key({ modkey, "Control" }, "l", function () awful.screen.focus_relative( 1) end),
+    awful.key({ modkey, "Control" }, "h", function () awful.screen.focus_relative(-1) end),
     awful.key({ modkey, }, "Tab",
         function ()
             awful.client.focus.history.previous()
@@ -31,8 +31,8 @@ globalkeys = awful.util.table.join(
 
         --================================================================================================--
         -- --some useful bindigs
-       awful.key({ }, "Print", function () awful.util.spawn("scrot -e 'mv $f ~/Pictures/screenshots/ 2>/dev/null'") end),
-       awful.key({ modkey }, "c", function () awful.util.spawn("slock") end),
+       awful.key({ }, "Print", function () awful.util.spawn("shutter -s") end),
+       awful.key({ }, "XF86ScreenSaver", function () awful.util.spawn("lock") end),
        awful.key({ modkey }, "b", function () mywibox[mouse.screen].visible = not mywibox[mouse.screen].visible end),
        awful.key({ }, "XF86AudioRaiseVolume", function () awful.util.spawn("amixer -D pulse sset Master 10%+") end ),
        awful.key({ }, "XF86AudioLowerVolume", function () awful.util.spawn("amixer -D pulse sset Master 10%-") end),
@@ -40,11 +40,14 @@ globalkeys = awful.util.table.join(
        -- Alt + Right Shift switches the current keyboard layout
        awful.key({ "Mod1" }, "Shift_R", function () kbdcfg.switch() end),
        --let's make 2 configs, when the my CRT monitor is on the right side, and in the left one
-       awful.key({ modkey, "Shift" }, "r", function () awful.util.spawn("xrandr --output VGA-0 --auto --right-of LVDS") end),
-       awful.key({ modkey, "Shift" }, "l", function () awful.util.spawn("xrandr --output VGA-0 --auto --left-of LVDS") end),
-       awful.key({ modkey, "Shift" }, "f", function () awful.util.spawn("xrandr --output VGA-0 --off") end),
+       awful.key({ modkey, "Shift" }, "r", function () awful.util.spawn("xrandr --output VGA1 --auto --rotate left --right-of LVDS1") end),
+       awful.key({ modkey, "Shift" }, "l", function () awful.util.spawn("xrandr --output VGA1 --auto --rotate left --left-of LVDS1") end),
+       awful.key({ modkey, "Shift" }, "f", function () awful.util.spawn("xrandr --output VGA1 --off") end),
        --awful.key({ modkey, "Control" }, "s", function () awful.util.spawn(" xsetwacom set \" WALTOP Tablet stylus\" RawSample", tabInterpolate+1) end),
        --awful.key({ modkey, "Control" }, "h", function () awful.util.spawn(" xsetwacom set \" WALTOP Tablet stylus\" RawSample", tabInterpolate-1) end),
+       -- backlight control
+       awful.key({ }, "XF86MonBrightnessDown", function () awful.util.spawn("xbacklight -10%") end),
+       awful.key({ }, "XF86MonBrightnessUp", function () awful.util.spawn("xbacklight +10%") end),
        --=================================================================================================--
 
    -- Standard program
