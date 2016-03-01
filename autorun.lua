@@ -1,28 +1,38 @@
 --{{ autorun stuff :D
-function run_once(prg)
-  awful.util.spawn_with_shell("pgrep -u $USER -x " .. prg .. " || (" .. prg .. ")")
+function run_once(prg,arg_string,pname,screen)
+    -- program, arguments, program name, tag to spawn at.
+    if not prg then
+        do return nil end
+    end
+
+    if not pname then
+       pname = prg
+    end
+
+    if not arg_string then
+        awful.util.spawn_with_shell("pgrep -f -u $USER -x '" .. pname .. "' || (" .. prg .. ")",screen)
+    else
+        awful.util.spawn_with_shell("pgrep -f -u $USER -x '" .. pname .. " ".. arg_string .."' || (" .. prg .. " " .. arg_string .. ")",screen)
+    end
 end
 
-run_once("nohup /usr/lib/gnome-settings-daemon/gnome-settings-daemon")
-run_once("conky -c ~/.conkyrc.task")
-run_once("xautolock")
---run_once("claws-mail")
---run_once("luakit")
---run_once("wicd-client")
---run_once("owncloud")
---run_once("ssh-agent")
+run_once("/usr/lib/gnome-settings-daemon/gnome-settings-daemon", nil, "gnome-settings-daemon", nil)
+run_once("conky")
+run_once("xautolock", "-time 15 -locker lock")
+run_once("thunderbird")
 run_once("deadbeef")
---run_once("transmission-gtk")
---run_once("sparkleshare start")
---run_once("xcompmgr -c -f -F -r8")
 run_once("nm-applet")
+--run_once("keepassx")
 run_once("redshift")
 --run_once("liferea")
-run_once("xchat")
+--run_once("shutter")
+--run_once("dropbox")
+run_once("zeal")
+-- run_once("chromium")
+run_once("hexchat")
 run_once("pidgin")
-run_once("shutter")
-run_once("thunderbird")
-run_once("anki")
-run_once("xrdb ~/.Xresources")
+--run_once("anki")
 
+awful.util.spawn_with_shell("conky -c ~/.conkyrc.logs")
+awful.util.spawn_with_shell("conky -c ~/.conkyrc.task")
 --}}
