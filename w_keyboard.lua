@@ -1,7 +1,7 @@
 -- Keyboard map indicator and changer
 kbdcfg = {}
 kbdcfg.cmd = "setxkbmap"
-kbdcfg.layout = { { "ro", "" }, { "us", "workman" }, {"ru", "phonetic"} }
+kbdcfg.layout = { { "ro", "" }, {"ru", "phonetic"} }
 kbdcfg.current = 1  -- ro is our default layout
 kbdcfg.widget = wibox.widget.textbox()
 kbdcfg.widget:set_text(" " .. kbdcfg.layout[kbdcfg.current][1] .. " ")
